@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 const MONGO_URI =
   process.env.MONGO_URI || "mongodb://localhost:27017/basiccrud";
 
-mongoose.connect("mongodb://localhost:27017/basiccrud");
+mongoose.connect(MONGO_URI);
 mongoose.connection.once("open", () => {
   console.log("connected to mongo");
 });
