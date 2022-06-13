@@ -1,9 +1,12 @@
 //? Dependencies
 require("dotenv").config();
 const express = require("express");
+const session = require("express-session");
 const mongoose = require("mongoose");
 const Fruit = require("./models/fruits");
 const fruitsController = require("./controllers/fruits");
+const userController = require("./controllers/users");
+const User = require("./models/users");
 
 //? Config
 const app = express();
@@ -17,8 +20,18 @@ mongoose.connection.once("open", () => {
 });
 
 //? middleware
+app.set("trust proxy", 1);
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+    //cookie: { secure: true },
+  })
+);
 app.use(express.urlencoded({ extended: false }));
 app.use("/fruits", fruitsController);
+app.use("/users", userController);
 
 //? Routes
 

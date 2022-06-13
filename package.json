@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-session": "^1.17.3",
     "heroku": "^7.60.2",
     "login": "^0.8.0",
     "mongoose": "^6.3.6"
