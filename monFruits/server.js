@@ -22,6 +22,10 @@ app.use("/fruits", fruitsController);
 
 //? Routes
 
+app.get("/", (req, res) => {
+  res.send("Hello Worlds");
+});
+
 // // SEED ROUTES
 // app.get("/fruits/seed", async (req, res) => {
 //   try {
